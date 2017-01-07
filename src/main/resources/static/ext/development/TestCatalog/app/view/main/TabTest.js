@@ -4,7 +4,8 @@ Ext.define('TestCatalog.view.main.TabTest', {
 	
     requires: [
         'TestCatalog.view.main.PanelTestInfo',
-    	'TestCatalog.view.main.ViewTestForm'
+    	'TestCatalog.view.main.ViewTestForm',
+        'TestCatalog.view.main.GridNorm'
     ],
 	
     bind: {
@@ -37,7 +38,10 @@ Ext.define('TestCatalog.view.main.TabTest', {
             title: 'Norms',
             tooltip: 'test norms'
         },
-        id: 'testNorms'    
+        items: {
+        	xtype: 'gridnorm',
+        	id: 'testNorms'
+        }
     }],
 
     listeners: {

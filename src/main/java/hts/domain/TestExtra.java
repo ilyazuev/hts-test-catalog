@@ -11,16 +11,16 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class TestExtra {
 	
-	@Id
-    private long id;
-	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	@PrimaryKeyJoinColumn
-    private Test test;
+	private Test test;
+	
+	@Id
+    private long id;
     private String abbr;
     private String author;
     private String type;
-    private int duration;
+    private Integer duration;
     private String description;
     @Column(length=2048, columnDefinition="TEXT")
     private String quickOverview;
@@ -52,10 +52,10 @@ public class TestExtra {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getDuration() {
+	public Integer getDuration() {
 		return duration;
 	}
-	public void setDuration(int duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
 	public String getDescription() {

@@ -6,7 +6,6 @@
  */
 Ext.define('TestCatalog.view.main.MainController', {
     extend: 'Ext.app.ViewController',
-
     alias: 'controller.main',
 
     onGridTestItemSelected: function (sender, record) {
@@ -20,8 +19,27 @@ Ext.define('TestCatalog.view.main.MainController', {
     	var storeTestform = viewModel.getStore('testform');
     	storeTestform.getProxy().setExtraParam('testId', testId);
     	storeTestform.load(); 
+    	var storeNorm = viewModel.getStore('norm');
+    	storeNorm.getProxy().setExtraParam('testId', testId);
+    	storeNorm.load();    	
     },
-    
+    onFilterClearClick: function(textField) {
+    	textField.setValue(null);
+    	this.loadTestStore();
+    },
+    onFilterClick: function(button) {
+    	this.loadTestStore(this.lookupReference(button.fieldReference).getValue());
+    },
+    onFilterFieldSpecialKey: function(field, event) {
+        if (event.getKey() === event.ENTER) {
+            this.loadTestStore(field.getValue());
+        }
+    },
+    loadTestStore: function(query) {
+    	var storeTest = this.getViewModel().getStore('test');
+    	storeTest.getProxy().setExtraParam('query', query);
+    	storeTest.load();
+    },
 	onStoreTestLoad: function() {
 		Ext.defer(function() {
 			Ext.getCmp('gridTest').getSelectionModel().select(0);

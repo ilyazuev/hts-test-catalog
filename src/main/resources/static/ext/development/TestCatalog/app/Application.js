@@ -33,12 +33,19 @@ var _buildUrl = Ext.data.proxy.Rest.prototype.buildUrl;
 Ext.override(Ext.data.proxy.Rest, {
 	buildUrl: function (request) {
 		var me = this,
-			url =_buildUrl.apply(me, arguments),
+			url = null,
 			params = request.getParams();
 		if(params) {
+			if(params.query) {
+				if(me.urlQuery) {
+					me.setUrl(me.urlQuery);
+				}
+			} else if(me.urlBase) {
+				me.setUrl(me.urlBase);
+			}
+			url =_buildUrl.apply(me, arguments);
 			var a,
-				added = [],
-				url = me.getUrl(request);
+				added = [];
 			for(var p in params) {
 				a = '{' + p + '}';
 				if( url.indexOf(a) >= 0 ) {
@@ -50,6 +57,6 @@ Ext.override(Ext.data.proxy.Rest, {
 				delete params[added[p]];
 			}
 		}
-        return url;
+        return url || _buildUrl.apply(me, arguments);
 	}
 });

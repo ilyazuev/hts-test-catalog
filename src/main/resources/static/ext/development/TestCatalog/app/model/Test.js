@@ -4,7 +4,8 @@ Ext.define('TestCatalog.model.Test', {
 	fields: [ 'id', 'fullName', 'name', 'language' ],
 	proxy: {
 		type: 'rest',
-		url: '/test',
+		urlBase: '/test',
+		urlQuery: '/test/search/findByNameAndDescriptionsContaining?query={query}',
 		reader: {
 			type: 'json',
 			rootProperty: '_embedded.test'

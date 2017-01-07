@@ -1,5 +1,6 @@
 package hts;
 
+import hts.domain.Norm;
 import hts.domain.Test;
 import hts.domain.TestForm;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -9,6 +10,6 @@ public class RepositoryRestMvcConf extends RepositoryRestConfigurerAdapter {
 
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-		config.exposeIdsFor(Test.class, TestForm.class);
+		config.exposeIdsFor(Test.class, TestForm.class, Norm.class);
 	}
 }

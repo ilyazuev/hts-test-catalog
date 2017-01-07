@@ -8,7 +8,8 @@ Ext.define('TestCatalog.view.main.MainModel', {
 	requires : [ 
 		'TestCatalog.model.Test', 
 		'TestCatalog.model.TestExtra',
-		'TestCatalog.model.TestForm'
+		'TestCatalog.model.TestForm',
+		'TestCatalog.model.Norm'
 	],    
 
     data: {
@@ -31,6 +32,11 @@ Ext.define('TestCatalog.view.main.MainModel', {
 	        autoLoad: false,
 	    	pageSize : 0
 		}
+		,norm: {
+			model: 'TestCatalog.model.Norm',
+	        autoLoad: false,
+	    	pageSize : 0
+		}		
 	}
 
 	,links: {

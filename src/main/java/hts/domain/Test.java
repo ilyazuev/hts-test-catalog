@@ -9,28 +9,40 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
 
 @Entity
+@Table( uniqueConstraints=@UniqueConstraint(columnNames={"DEFAULT_NORM_ID"}) )
 public class Test {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@NotNull
 	private String name;
+	@NotNull
 	private String version;
-	@Column(length=5, nullable=false)
+	@Column(length = 5, nullable = false)
 	private String language = "en-EN";
-	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "test")
-	@PrimaryKeyJoinColumn
-	private TestExtra testExtra;	
 
-	// Lazy by default
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "test")
+	@PrimaryKeyJoinColumn
+	private TestExtra testExtra;
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "test")
 	private List<TestForm> testForms;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "test")
+	private List<Norm> norms;
+
+	@ManyToOne  	
+	private Norm defaultNorm;
 
 	public String getName() {
 		return name;
@@ -72,4 +84,19 @@ public class Test {
 		this.language = language;
 	}
 
+	public Norm getDefaultNorm() {
+		return defaultNorm;
+	}
+
+	public void setDefaultNorm(Norm defaultNorm) {
+		this.defaultNorm = defaultNorm;
+	}
+
+	public List<Norm> getNorms() {
+		return norms;
+	}
+
+	public void setNorms(List<Norm> norms) {
+		this.norms = norms;
+	}
 }

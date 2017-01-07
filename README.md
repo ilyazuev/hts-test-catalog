@@ -1,7 +1,7 @@
 # hts-test-catalog
 HTS Test Catalog
 
-Demo project:
+Prototype project:
 
 - Spring Boot. 
 - Sencha Ext JS 6.
