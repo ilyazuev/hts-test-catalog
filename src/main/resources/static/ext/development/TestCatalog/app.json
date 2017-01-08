@@ -299,10 +299,20 @@
      */
     "production": {
         "output": {
+			"base": "${workspace.build.dir}/../../../${build.environment}/${app.name}",
+			"page": {
+				"path": "../../../../templates/index.html",
+				"enable": false
+			},        
             "appCache": {
                 "enable": true,
                 "path": "cache.appcache"
-            }
+            },
+			"microloader": {
+				"path": "bootstrap.js",
+				"embed": false,
+				"enable": true
+			}            
         },
         "loader": {
             "cache": "${build.timestamp}"

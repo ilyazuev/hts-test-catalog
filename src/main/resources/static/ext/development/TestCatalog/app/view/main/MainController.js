@@ -31,7 +31,8 @@ Ext.define('TestCatalog.view.main.MainController', {
     	this.loadTestStore(this.lookupReference(button.fieldReference).getValue());
     },
     onFilterFieldSpecialKey: function(field, event) {
-        if (event.getKey() === event.ENTER) {
+    	var key = event.getKey();
+        if (key === event.ENTER || key == event.TAB) {
             this.loadTestStore(field.getValue());
         }
     },
