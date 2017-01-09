@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
@@ -44,6 +45,12 @@ public class Test {
 	@ManyToOne  	
 	private Norm defaultNorm;
 
+	
+	@Transient
+    public String getFullName() {
+		return String.format("%s.%s.%s", name, version, language);
+	}
+	
 	public String getName() {
 		return name;
 	}

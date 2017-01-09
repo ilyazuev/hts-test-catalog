@@ -27,6 +27,16 @@ public class Norm {
 	private Integer maxAge;
 	private String dataSource;
 
+	@Transient
+	public boolean isDefault() {
+		return this.id == this.test.getDefaultNorm().getId();
+	}
+
+	@Transient
+	public String getAgeRestrictions() {
+		return String.format("%s-%s", minAge != null ? minAge : "", maxAge != null ? maxAge : "");
+	}	
+	
 	public String getName() {
 		return name;
 	}
@@ -82,15 +92,5 @@ public class Norm {
 	public void setDataSource(String dataSource) {
 		this.dataSource = dataSource;
 	}
-
-	@Transient
-	public boolean isDefault() {
-		return this.id == this.test.getDefaultNorm().getId();
-	}
-
-	@Transient
-	public String getAgeRestrictions() {
-		return String.format("%s-%s", minAge != null ? minAge : "", maxAge != null ? maxAge : "");
-	}
-
+	
 }

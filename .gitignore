@@ -21,7 +21,7 @@ nbdist/
 .nb-gradle/
 
 target/
-src/main/resources/static/ext/development/TestCatalog/ext/
+src/main/resources/static/ext/development/testcatalog/ext/
 .mvn/
 .settings/
 mvnw.*
