@@ -8,5 +8,5 @@ Prototype project:
 
 Demo link:
 
-http://35.163.196.18/ext/TestCatalog/index.html
+http://35.163.196.18/ext/TestCatalog
 
