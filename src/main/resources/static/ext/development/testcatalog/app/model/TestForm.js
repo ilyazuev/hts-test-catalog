@@ -4,10 +4,10 @@ Ext.define('TestCatalog.model.TestForm', {
 	fields : [ 'id', 'name' ],
 	proxy : {
 		type: 'rest',
-		url: '/test/{testId}/testForms',
+		url: '/rest/test/{testId}/testForms',
 		reader : {
 			type : 'json',
-			rootProperty : '_embedded.testform'
+			rootProperty : '' // rootProperty : '_embedded.testform'
 		}
 	}
 });

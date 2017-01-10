@@ -11,7 +11,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class TestExtra {
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, optional=false)
 	@PrimaryKeyJoinColumn
 	private Test test;
 	

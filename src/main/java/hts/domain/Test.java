@@ -32,7 +32,7 @@ public class Test {
 	@Column(length = 5, nullable = false)
 	private String language = "en-EN";
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "test")
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "test", optional=false)
 	@PrimaryKeyJoinColumn
 	private TestExtra testExtra;
 
@@ -42,7 +42,7 @@ public class Test {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "test")
 	private List<Norm> norms;
 
-	@ManyToOne  	
+	@ManyToOne //(fetch = FetchType.LAZY)  	
 	private Norm defaultNorm;
 
 	
