@@ -10,6 +10,9 @@ import hts.domain.TestExtra;
 public interface TestExtraRepository extends CrudRepository<TestExtra, Long> {
 
 	@Override
+	TestExtra findOne(Long id);
+
+	@Override
 	@RestResource(exported = false)
 	void delete(Long id);
 

@@ -19,19 +19,21 @@ public class TestCatalogController {
 
 	@GetMapping("/ext/development/TestCatalog")
 	public String developmentTestCatalog(Model model) {
-		model.addAttribute("environment", "development");
-		return "index";
+		return getEnvironmentIndex(model, "development");
 	}
 
 	@GetMapping("/ext/testing/TestCatalog")
 	public String testingTestCatalog(Model model) {
-		model.addAttribute("environment", "testing");
-		return "index";
+		return getEnvironmentIndex(model, "testing");
 	}
 
 	@GetMapping("/ext/TestCatalog")
 	public String productionTestCatalog(Model model) {
-		model.addAttribute("environment", "production");
+		return getEnvironmentIndex(model, "production");
+	}
+	
+	private String getEnvironmentIndex(Model model, String environment) {
+		model.addAttribute("environment", environment);
 		return "index";
 	}
 

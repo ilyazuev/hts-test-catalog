@@ -4,7 +4,7 @@ Ext.define('TestCatalog.model.TestExtra', {
 	fields : [ 'abbr', 'author', 'type', 'duration', 'description', 'quickOverview', 'productDescription' ],
 	proxy : {
 		type : 'rest',
-		url : '/testextra',
+		url : '/rest/testextra',
 		reader : {
 			type : 'json',
 			rootProperty : ''

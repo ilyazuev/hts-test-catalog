@@ -5,10 +5,10 @@ Ext.define('TestCatalog.model.Norm', {
 	
 	proxy : {
 		type: 'rest',
-		url: '/test/{testId}/norms',
+		url: '/rest/test/{testId}/norms',
 		reader : {
 			type : 'json',
-			rootProperty : '_embedded.norm'
+			rootProperty : '' //rootProperty : '_embedded.norm'
 		}
 	}
 });
