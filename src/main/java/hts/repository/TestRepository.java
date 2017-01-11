@@ -20,6 +20,10 @@ public interface TestRepository extends PagingAndSortingRepository<Test, Long> {
 
 	@Override
 	@RestResource(exported = false)
+	<S extends Test> S save(S entity);
+
+	@Override
+	@RestResource(exported = false)
 	void delete(Long id);
 
 	@Override

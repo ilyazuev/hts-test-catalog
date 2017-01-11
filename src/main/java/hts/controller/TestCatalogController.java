@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TestCatalogController {
 
 	@GetMapping("/testcatalog") // @RequestMapping("/testcatalog")
-	public String greeting(
+	public String mainView(
 			@RequestParam(value = "name", required = false, defaultValue = "new test catalog") String name,
 			Model model) {
 		System.out.println("show testcatalog template.");
