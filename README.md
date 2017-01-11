@@ -10,3 +10,4 @@ Demo link:
 
 http://35.163.196.18/ext/TestCatalog
 
+![Jpa Diagram](jpa_diagram.png?raw=true "Jpa Diagram")
